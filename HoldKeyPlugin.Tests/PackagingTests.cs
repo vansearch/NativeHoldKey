@@ -7,12 +7,14 @@ namespace HoldKeyPlugin.Tests;
 public sealed class PackagingTests
 {
     [Fact]
-    public void NativeBinding_IsDeclaredAsMacOsOnly()
+    public void NativeBinding_IsDeclaredForDesktopPlatforms()
     {
         var attribute = Assert.Single(
             typeof(NativeHoldKeyBinding).GetCustomAttributes(typeof(SupportedPlatformAttribute), false));
 
-        Assert.Equal(PluginPlatform.MacOS, ((SupportedPlatformAttribute)attribute).Platform);
+        Assert.Equal(
+            PluginPlatform.MacOS | PluginPlatform.Windows | PluginPlatform.Linux,
+            ((SupportedPlatformAttribute)attribute).Platform);
     }
 
     [Fact]
@@ -25,6 +27,6 @@ public sealed class PackagingTests
 
         Assert.Contains("PackageReference Include=\"OpenTabletDriver.Plugin\" Version=\"0.6.7\"", project);
         Assert.DoesNotContain("/Applications/", project);
-        Assert.Contains("<Version>1.0.0.0</Version>", project);
+        Assert.Contains("<Version>1.1.0.0</Version>", project);
     }
 }
