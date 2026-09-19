@@ -1,0 +1,8 @@
+**/bin/
+**/obj/
+TestResults*/
+.DS_Store
+*.user
+*.suo
+settings-before-plugin.json
+artifacts/
