@@ -4,17 +4,14 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <AssemblyName>HoldKeyPlugin</AssemblyName>
-    <OpenTabletDriverPath Condition="'$(OpenTabletDriverPath)' == ''">/Applications/OpenTabletDriver .app/Contents/MacOS</OpenTabletDriverPath>
+    <Version>1.0.0.0</Version>
+    <Authors>Thallys Florentino</Authors>
+    <Description>Native macOS hold-key bindings with Quartz autorepeat and safe key release for OpenTabletDriver.</Description>
+    <RepositoryUrl>https://github.com/vansearch/NativeHoldKey</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
   <ItemGroup>
-    <Reference Include="OpenTabletDriver">
-      <HintPath>$(OpenTabletDriverPath)/OpenTabletDriver.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="OpenTabletDriver.Plugin">
-      <HintPath>$(OpenTabletDriverPath)/OpenTabletDriver.Plugin.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
+    <PackageReference Include="OpenTabletDriver.Plugin" Version="0.6.7" />
   </ItemGroup>
 </Project>

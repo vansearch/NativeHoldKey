@@ -4,7 +4,7 @@ using OpenTabletDriver.Plugin.Tablet;
 
 namespace HoldKeyPlugin;
 
-[PluginName("Native Hold Key")]
+[PluginName("Native Hold Key"), SupportedPlatform(PluginPlatform.MacOS)]
 public sealed class NativeHoldKeyBinding : IStateBinding, IDisposable
 {
     private readonly IHoldKeyController controller;
