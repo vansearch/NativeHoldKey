@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-version="${1:-1.0.0.0}"
+version="${1:-1.1.0.0}"
 repository_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 archive_directory="${repository_root}/artifacts"
 archive_path="${archive_directory}/NativeHoldKey-${version}.zip"
