@@ -1,9 +1,20 @@
 using Xunit;
+using OpenTabletDriver.Plugin;
+using OpenTabletDriver.Plugin.Attributes;
 
 namespace HoldKeyPlugin.Tests;
 
 public sealed class PackagingTests
 {
+    [Fact]
+    public void NativeBinding_IsDeclaredAsMacOsOnly()
+    {
+        var attribute = Assert.Single(
+            typeof(NativeHoldKeyBinding).GetCustomAttributes(typeof(SupportedPlatformAttribute), false));
+
+        Assert.Equal(PluginPlatform.MacOS, ((SupportedPlatformAttribute)attribute).Platform);
+    }
+
     [Fact]
     public void PluginProject_UsesPortableOfficialPackageReference()
     {
